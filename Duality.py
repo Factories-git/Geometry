@@ -1,4 +1,4 @@
-import sys
+import sys,random
 
 input = sys.stdin.readline
 
@@ -12,12 +12,8 @@ for _ in range(int(input())):
     dots.sort(key= lambda x: (x[1],x[2]))
     k = 1
     for name_,x,y in dots:
-        new_y = y + (10**8) * k
-        if new_y > 10**9:
-            new_y = 10**9 * k
-        elif new_y < -10**9:
-            new_y = -10**9 * k
-        new.append([name_,x,new_y])
+        new_y = y + 10**8
+        new.append([name_,x+1,new_y])
         k *= -1
     for name,x,y in new:
         print(name, x, y)
